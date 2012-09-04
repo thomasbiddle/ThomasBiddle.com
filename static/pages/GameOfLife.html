@@ -73,7 +73,7 @@ function DrawBoard(Board)
 	for(var y = 0; y < ysize; ++y)
 	{
 		for(var x = 0; x < xsize; ++x)
-			Text += Board[x][y]==alive ? "<img src='http://thomasbiddle.com/alive.png'/>":"<img src='http://thomasbiddle.com/dead.png'/>";
+			Text += Board[x][y]==alive ? "<img src='../images/alive.png'/>":"<img src='../images/dead.png'/>";
 		Text += "<br/>";
 	}
 	document.getElementById("board").innerHTML = Text;
