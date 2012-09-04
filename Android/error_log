@@ -1,0 +1,3 @@
+[25-Apr-2012 23:26:29] PHP Parse error:  syntax error, unexpected ':' in /home/vpsinfin/public_html/thomasbiddlecom/Android/testing.php on line 24
+[25-Apr-2012 23:44:26] PHP Parse error:  syntax error, unexpected T_STRING, expecting ',' or ';' in /home/vpsinfin/public_html/thomasbiddlecom/Android/testing.php on line 20
+[25-Apr-2012 23:55:05] PHP Fatal error:  Cannot use [] for reading in /home/vpsinfin/public_html/thomasbiddlecom/Android/testing.php on line 7

@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>Project Euler</title>
+<link rel="stylesheet" type="text/css" href="http://projecteuler.net/style_dark.css" />
+<link href='http://fonts.googleapis.com/css?family=Original+Surfer' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Iceland' rel='stylesheet' type='text/css'>
+
+<style type="text/css">
+	blockquote 
+	{
+		border : 2px solid #000;
+		width: 400px;
+		padding: 10px;
+		background-color: #686868;
+		quotes: "\201C" "\201D";
+		font-size: 15;
+		font-family: 'Original Surfer', cursive
+	}
+	body
+	{
+		font-family: 'Iceland', cursive;
+	}
+</style>
+
+</head>
+<body>
+<img src="http://projecteuler.net/images/pe_banner_dark.png"></img>
+
+<blockquote>
+“Project Euler exists to encourage, challenge, and develop the skills and enjoyment of anyone with an interest in the fascinating world of mathematics.”</blockquote>
+<p>
+Here, you can find my collection of solutions to Project Euler problems. I attempt to do this in my free time (Yes, for fun!) whenever I can. I hope that as I slowly progress to more difficult problems, that my programming abilities will increase in order to tackle the latest challenge.
+</p>
+<p>
+I will generally write these in C++ (Or if another language seems to have a more straight-forward solution, I will do that); however as I have time, I will rewrite all of them in other languages I know or am learning (As of this writing, those would be: C++, Java, & Javascript - Soon Python). I hope that as I pick up new languages, I will be able to use these problems in order to better my knowledge of that particular language's syntax and internal libraries. 
+</p>
+
+<p>
+Note: I got a bit lazy and I didn't want to make links to all of these, so I'm just having Javascript loop through a few of them (Thank you consistent naming conventions). If it's a broken link - then I haven't uploaded a solution yet. Also, some of these solutions aren't finished; which it will state if it's not. I have solved some far out of order (In the 40's and such) However I will not display these yet as I would have far too many broken links in between.
+</p>
+
+
+<script type="text/javascript">
+	document.write("<u>C++ Solutions:</u>");
+	document.write("<table>");
+	document.write("<center>"); 
+	document.write("<tr>");
+	var solutionCount = 20;
+	for (var i=1; i<=solutionCount; i++)
+	{
+		if ((i-1)%10 == 0) document.write("</tr><tr>");
+		document.write("<td>");
+		document.write("<a href='Problems/cpp-" + i + ".txt'>" + i + "</a>");
+		document.write("</td>")
+	}
+	document.write("</tr>");
+	document.write("</table>");
+	document.write("</center>");
+	
+	document.write("</br></br>");
+	document.write("<u>Javascript Solutions:</u>");
+	document.write("<table>");
+	document.write("<center>"); 
+	document.write("<tr>");
+	for (var i=1; i<=solutionCount; i++)
+	{
+		if ((i-1)%10 == 0) document.write("</tr><tr>");
+		document.write("<td>");
+		document.write("<a href='Problems/js-" + i + ".js'>" + i + "</a>");
+		document.write("</td>")
+	}
+	document.write("</tr>");
+	document.write("</table>");
+	document.write("</center>");
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+[25-Feb-2012 12:22:47] PHP Parse error:  syntax error, unexpected ')', expecting ']' in /home/vpsinfin/public_html/domaintools/info.php on line 4
+[25-Feb-2012 12:23:23] PHP Warning:  include(lib/DomainTools.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/vpsinfin/public_html/domaintools/info.php on line 2
+[25-Feb-2012 12:23:23] PHP Warning:  include(lib/DomainTools.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in /home/vpsinfin/public_html/domaintools/info.php on line 2
+[25-Feb-2012 12:23:23] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'lib/DomainTools.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/vpsinfin/public_html/domaintools/info.php on line 2
+[25-Feb-2012 12:23:23] PHP Fatal error:  Class 'Base_DomainTools' not found in /home/vpsinfin/public_html/domaintools/info.php on line 3
+[26-Feb-2012 11:35:17] PHP Parse error:  syntax error, unexpected T_STRING in /home/vpsinfin/public_html/domaintools/info.php on line 16
+[26-Feb-2012 11:43:39] PHP Warning:  nl2br() expects parameter 1 to be string, array given in /home/vpsinfin/public_html/domaintools/info.php on line 22
+[26-Feb-2012 12:04:34] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home/vpsinfin/public_html/domaintools/info.php on line 36
+[13-Jun-2012 07:41:38] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: unable to connect to whois.cira.ca:43 (Connection timed out) in /home/vpsinfin/public_html/thomasbiddlecom/vezign/domaintools/script/lib/Whois.php on line 100
+[13-Jun-2012 07:42:39] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: unable to connect to whois.cira.ca:43 (Connection timed out) in /home/vpsinfin/public_html/thomasbiddlecom/vezign/domaintools/script/lib/Whois.php on line 100

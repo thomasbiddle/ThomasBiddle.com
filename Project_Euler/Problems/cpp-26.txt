@@ -1,0 +1,27 @@
+#include <iostream>
+	using namespace std;
+
+/*
+	Goal: Find longest recurring decimal cyle.
+		ie: 1/6 = 0.16666 (6 is a 1 digit cycle)
+			1/8 = 0.125 (125 is a 3 digit cycle)
+	
+	Not Finished!
+	Answer: 
+*/
+
+int main()
+{
+	/*
+		Goal: Find longest recurring decimal cyle.
+		ie: 1/6 = 0.16666 (6 is a 1 digit cycle)
+			1/8 = 0.125 (125 is a 3 digit cycle)
+		Pseudocode:
+			Need to figure out if it has a repeating cycle to begin with.
+			If it does, find out what it is.
+			Check how long it is.
+		
+	*/
+
+	return 0;
+}

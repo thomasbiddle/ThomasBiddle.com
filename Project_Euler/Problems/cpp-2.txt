@@ -1,0 +1,42 @@
+#include <iostream>
+	using namespace std;
+
+/* 
+	Goal: By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
+
+	Finished!
+	Answer: 4613732
+
+*/
+
+// Return the Fibonacci value of the two previous terms, a & b.
+int fib(int a, int b) 
+{
+	return (a+b);
+}
+
+int main() 
+{
+	int bottom = 1; // The bottom value in the Fibonacci Sequence.
+	int top = 2; // The top value in the Fibonacci Sequence
+	int temp; // A temporary variable to hold the answer that the fib() function returns.
+	int total = 0; // The sum of even Fibonnaci values.
+	
+	/*
+		While the top value is less than 4,000,000 , Find the Fib value of the two previous values.
+		Save the answer to a temporary value. The previous bottom becomes the top, the previous top becomes
+		the new Fib value we just found.
+	*/
+	while (top < 4000000)
+	{
+		if (top%2 == 0) total += top; // If the value is even, add it to our total sum.
+		temp = fib(bottom,top);
+		cout << bottom << " + " << top << " = " << temp << endl;
+		bottom = top;
+		top = temp;
+	}
+
+	// Output the total sum of even Fibonacci values below 4,000,000
+	cout << "Sum of even Fibonacci values below 4,000,000: " << total << endl;
+	return 0;
+}

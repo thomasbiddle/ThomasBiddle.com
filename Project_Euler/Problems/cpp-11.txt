@@ -1,0 +1,15 @@
+#include <iostream>
+	using namespace std;
+
+/*
+	Goal: What is the greatest product of four adjacent numbers in any direction (up, down, left, right, or diagonally) in the 2020 grid? (Source: http://projecteuler.net/problem=11 )
+	
+	Not Finished!
+	Answer:
+*/
+
+int main()
+{
+
+	return 0;
+}

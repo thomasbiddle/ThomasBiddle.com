@@ -1,0 +1,263 @@
+/*
+THOMAS BIDDLE
+
+Program Goal:
+	Read in a given data file that includes elements in a set, with it's pairs below.
+	Example Input of data file (Empty line at the end of the set must be included):
+		a b c d
+		a a
+		a c
+		a d
+		c d
+		
+	Check if the set is: Reflexive, Symmetric, Anti-Symmetric, Transitive and return results.
+	
+Personal Goals and future plans:
+	Take functions out of main and provide separate functions to clean up code.
+	Comment as much as possible for future legibility.
+	Optimize methods.
+	Use constants and name variables effectively.
+	Do not re-use variable names between functions, name effectively.
+	
+Comments and lessons learned from the project:
+	Comment as much as possible in order to understand code in the future.
+	Use meaningful variable names.
+	Write pseudocode first - Use "How it works" at the top comments to write out plans.
+*/
+
+#include <iostream> // Program I/O (cout)
+#include <fstream> // File I/O 
+
+	using namespace std;
+
+
+int main()
+{
+	
+	/* BEGIN READ DATA FILE */
+
+	string line; // Declare a string that we will use.
+	string wholeSet[37]; // Array size reflects how many lines are in the file.
+	int i=0; // i will be the iterator below that is increased for each read line.
+	ifstream myfile ("Inputs-set1.txt"); // File to be read in.
+	if (myfile.is_open()) 
+	{
+		while ( myfile.good() )
+		{
+			getline (myfile,line); // Save each line in the string "line".
+			wholeSet[i] = line; // Save "line" into an array of lines.
+			i++; // Increase i in order to write to the next line.
+		}
+		myfile.close(); // Don't want to leave it open and cause issues.
+	  }
+	  
+	else cout << "Unable to open file\n"; // No file?
+	
+	/* END READ DATA FILE */
+	
+	// Check through all the lines, and react.
+	for (int j=0; j<i; j++) 
+	{
+		// If the line is longer than 3, we have a set!
+		if (wholeSet[j].length() > 3)
+		{
+		
+			/* START VARIABLE DECLARATION */
+			
+			const int setBegin = j; // Line that set is on. Save for later.
+			int foundSize = (wholeSet[setBegin].length()+1)/2; // Size of the found array
+			int found[foundSize]; // Start off as not being reflexive. If 1, then reflexive.
+			for (int z=1; z<foundSize;z++) found[z] = 0; // Set all elements to 0 for non-reflexive.
+			
+			/* END VARIABLE DECLARATION */
+			
+			/* START REFLEXIVE SEARCH */
+			/*
+				Comments:
+					Make it work like transitive; keep a 'theoretical' and 'actual' count, as opposed to 
+						the array method.
+				How it works:
+					Check each *element* in the set.
+					Iterate through each row, check one pair at a time, ie: Pair "x".
+					Check if Pair "x"'s first and second elemnts are both equal to the element we are looking for,
+						if it is - set our found array to reflect that.
+					If not, check the next pair.
+					Check if all elements have had a pair, if it does - the set is reflexive!
+			*/
+			
+			int y = 0; // y will designate the position in the array we are affecting.
+			for (int k=0; k<wholeSet[setBegin].length();k+=2) // k = letter we are checking.
+			{
+				// Check values if reflexive.
+				int m=setBegin+1; // m = The first pair in the set.
+				while (wholeSet[m].length() != 0) // Do this while it's checking a pair and not a blank line.
+				{
+					if ( (wholeSet[m][0] == wholeSet[setBegin][k]) && (wholeSet[m][2] == wholeSet[setBegin][k]) )
+					// Check to see if both characters in the pair match the value in the set we are checking.
+					{
+						found[y] = 1; // It's found a reflexive value!
+						break;
+					}
+					else 	
+						m++;
+				}
+				y++; // Increment y to go to the next position in the array.
+			}
+			int reflexiveCount = 0;
+			for (y=0; y<foundSize; y++) {
+				if (found[y] == 1) reflexiveCount++;
+			}
+			if (reflexiveCount == foundSize) cout << "Reflexive - TRUE" << endl;
+			else cout << "Reflexive - FALSE" << endl;
+			
+			/* END REFLEXIVE SEARCH */
+			
+			
+			/* START SYMMETRIC SEARCH */
+			
+			/*
+				Comments:
+					May want to abandon the "foundSize" array tactic and replace it with a
+					theoretical/actual count like in transitive.
+						Essentially, foundSize == theoretical.
+						symetricCount == actual.
+					Are all three while loops necessary, or do I only need 2? Try other tactic after finished.
+				How it works:
+				Reset our "foundSize" array to be all 0's
+				Iterate through each row, check one pair at a time, ie: Pair "x".
+				Iterate through each row, check one pair at a time, ie: Pair "y".
+				If Pair "x" is the opposite of Pair "y" then we've found a symmetric match!
+				Check to make sure we have as many symmetric pairs as there are elements.
+			*/
+			for (y=0; y<foundSize; y++) {
+				found[y] = 0;
+			}
+			y = 0;
+			int o = setBegin+1; // o will reflect where we are in the array, start at the first pair.
+			int q = setBegin+1; // q will be which pair we are checking in the array.
+			int r = setBegin+1; // r will iterate through pairs
+			while (wholeSet[o].length() != 0) // Do this until we're at the end of the set, a blank line.
+			{
+				q = o;
+				r = setBegin+1;
+				while (wholeSet[q].length() != 0)
+				{
+					while (wholeSet[r].length() != 0)
+					{
+						if ( (wholeSet[r][0] == wholeSet[q][2]) && (wholeSet[r][2] == wholeSet[q][0]) ) 
+						{
+							found[y] = 1;
+							y++;
+						}
+						r++;
+					}
+					q++;
+				}
+				o++;
+			}
+			foundSize = (wholeSet[setBegin].length()+1); // For some reason this was being set to 1.
+			int symmetricCount = 0;
+			for (y=0; y<foundSize; y++) {
+				if (found[y] == 1) symmetricCount++;
+			}
+			if (symmetricCount == foundSize) cout << "Symmetric - TRUE " << endl;
+			else cout << "Symmetric - FALSE " << endl;
+			
+			/* END SYMMETRIC SEARCH */
+			
+			/* START TRANSITIVE SEARCH */
+			
+			/*
+				How it works:
+				Iterate through each row, check one pair at a time, ie: Pair "x".
+				Iterate through each row, check one pair at a time, ie: Pair "y".
+				Check if Pair "y"'s first element equals Pair "x"'s second element.
+					ie: x = (a,b) , y = (b,d)
+				If it does, increase how many transitive pairs we *should* have (transNumberTheo).
+				Iterate through each row, check one pair at a time, ie: Pair "z".
+				If Pair "z" has "x"'s second element as it's first element, and "y"'s first element as it's second,
+					we have a match! Increase the number of transitive pairs we've found (transNumberActual).
+				Eventually we will iterate through all rows and check all pairs against each other.
+				If the theoretical count (should have) == actual count (do have) then the set is transitive!
+			*/
+			
+			o = setBegin+1; // Iterate through all pairs.
+			int transNumberTheo = 0; // There should be this many transitive pairs in the end.
+			int transNumberActual = 0;
+			while (wholeSet[o].length() != 0)
+			{
+				q = setBegin+1; // Iterate through all pairs.
+				while (wholeSet[q].length() != 0)
+				{
+					if (wholeSet[q][0] == wholeSet[o][2])
+					{
+						transNumberTheo++; // A transitive pair should exist, increase how many we're looking for.
+						r = setBegin+1; // Iterate through all pairs.
+						while (wholeSet[r].length() != 0)
+						{
+							if ( (wholeSet[r][0] == wholeSet[o][0]) && (wholeSet[r][2] == wholeSet[q][2]) )
+							{
+								transNumberActual++; // Found one!
+							}
+							r++; // Check the next row. 
+						}
+					}
+					q++; // Go to next row.
+				}
+				o++; // Next row. 
+			}
+			if (transNumberActual == transNumberTheo) cout << "Transitive - TRUE " << endl;
+			else cout << "Transitive - FALSE " << endl;
+			
+			/* END TRANSITIVE SEARCH */
+			
+			/* START ANTI-SYMMETRIC SEARCH */
+			/* 
+				Comments:
+					Proud of this one! Was the last one I did - turned out much cleaner than the rest.
+				How it works:
+					Set a boolean to be true; if it remains true, it is anti-symmetric.
+					Iterate through each row, check one pair at a time, ie: Pair "x".
+					Iterate through each row, check one pair at a time, ie: Pair "y".
+					Check if Pair "x"'s first element == Pair "y"'s second element and if
+						Pair "x"'s second element == Pair "y"'s first element.
+						If it does, *and* all elements are equal to each other such that (x == y) for both
+						then ignore the pair.
+						If (x != y) then set the boolean to false; the set is not anti-symmetric.
+					Return the result.
+					
+			*/
+			
+			o = setBegin+1; // Iterate through all pairs.
+			q = setBegin+1; // Iterate through all pairs.
+			bool isAntiSym = true;
+			while (wholeSet[o].length() != 0) // Find Pair "x".
+			{
+				q = setBegin+1; // Make sure we start at the first pair.
+				while (wholeSet[q].length() != 0) // Find Pair "y".
+				{
+					// Compare the two pairs to find if the are opposites.
+					if ( (wholeSet[o][0] == wholeSet[q][2]) && (wholeSet[o][2] == wholeSet[q][0]) )
+					{
+						// If they are opposites and the elements are not equal; the set is not antisymmetric.
+						if ( wholeSet[o][0] != wholeSet[o][2] ) 
+						{
+							isAntiSym = false;
+						}
+					}
+					q++; // Check the next Pair "y".
+				}
+				o++; // Check the next Pair "x".
+			}
+			
+			if (isAntiSym) cout << "Anti-Symmetric - TRUE " << endl;
+			else cout << "Anti-Symmetric - FALSE " << endl;
+			
+			/* END ANTI-SYMMETRIC SEARCH */
+			
+			cout << " " << endl; // Blank line to make things organized.
+		}
+	}
+    return 0;
+}
+

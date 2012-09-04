@@ -1,0 +1,119 @@
+#include <iostream>
+	using namespace std;
+
+/*
+	Goal: Find the first four consecutive integers to have four distinct primes factors. What is the first of these numbers?
+
+	Finished!
+	Answer: 134043
+	
+	Notes: Need to understand better how the next prime factor works (Kinda stole it)
+*/
+
+/*
+Checks if x is a prime number.
+*/
+bool checkIsPrime(int x)
+{
+	if (x==1) return false;  
+	if ( (x==2) || (x==3) ) return true;
+	for(int i=3; i<=x; i+=2)
+	{
+		if (i == x) return true;
+		if (x%i == 0) return false;
+	}
+}	
+
+int howManyPrimeFactors( int x )
+{
+	int count = 0;
+	for (int i=2; x!=1; i++)
+	{
+		if ( x%i == 0)
+		{
+			count++;
+			while (x%i==0) x/=i;
+		}
+	}
+	return count;
+}
+
+
+
+
+
+/*
+int howManyPrimeFactors( int x )
+{
+	int i = 2; // Prime numbers start at 2.
+	int count = 0; // Keep track of how many prime factors it has.
+	int usedBefore = 0; // Keeps track of highest prime so far. All future ones will be equal or higher.
+	if ( x%2 == 0 ) 
+	{
+		cout << "Prime Factor has been found! " << 2 << endl;
+		x /= 2; 
+		count++; // If it's even, divide it by two.  
+		usedBefore = 2;
+	}
+	while (x != 1)
+	{
+		if ( checkIsPrime(i) )
+		{
+			if ( x%i == 0 ) 
+			{
+				cout << "Prime Factor has been found! " << i << endl;
+				if (i<=usedBefore)
+				{
+					x /= i;
+				}
+				else 
+				{
+					usedBefore = i;
+					count++;
+					x /= i;
+				}
+			}
+			else i++; // If it's not divible - check the next number. 
+		}
+		else i++; // If it's not prime - check the next number. 
+	}
+	return count;
+}*/
+
+int main()
+{
+
+	/*
+	Goal: 
+		Find the first four consecutive integers to have four distinct primes factors. What is the first of these numbers?
+	Example: 
+		The first two consecutive numbers to have two distinct prime factors are:
+		14 = 2 * 7
+		15 = 3 * 5
+	Pseudocode:
+		Find prime factors of a number.
+		If it has 4 prime factors check if number+1 has 4 prime factors.
+		If it does, check if number+2.
+		If it does, check if number+3.
+		Answer is number.
+	*/
+	
+	int i = 2; // No point checking anything under this since no primes exist!
+	int counter = 0; // Counts how many we've found in a row.
+	int howMany = 4; // How many in a row of how many factors?
+	bool foundAnswer = false; // We haven't found the answer yet!
+	while (!foundAnswer) // Do this until we find the answer.
+	{	
+		if ( howManyPrimeFactors(i) == howMany ) 
+		{
+			counter++;
+			if (counter == howMany) foundAnswer = true;
+		}
+		else counter = 0;
+		i++;
+	}
+	
+	cout << "The first number is: " << i-howMany << endl;
+
+	return 0;
+}
