@@ -5,6 +5,6 @@ This repository is a copy of ThomasBiddle.com .
 
 Reminders:
 <ul>
-  <li> Clean up file structure. A lot of these files are not related to what is necessary for the site. 
+  <li> <del>Clean up file structure. A lot of these files are not related to what is necessary for the site.</del> 
   <li> Re-write. 
 </ul>
