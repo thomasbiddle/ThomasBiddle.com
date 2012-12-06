@@ -18,7 +18,7 @@ class thomasbiddle_com {
   file { '/etc/apache2/sites-enabled/thomasbiddle.com':
     ensure => link,
     target => '/etc/apache2/sites-available/thomasbiddle.com',
-    rquire => File['/etc/apache2/sites-available/thomasbiddle.com'],
+    require => File['/etc/apache2/sites-available/thomasbiddle.com'],
   }
 
   # Ensure the file structure is in place.
