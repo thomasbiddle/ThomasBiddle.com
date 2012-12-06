@@ -13,6 +13,12 @@ class thomasbiddle_com {
     content => template('thomasbiddle_com/apache2.erb'),
   }
 
+  file { '/etc/apache2/sites-enabled/thomasbiddle.com':
+    ensure => link,
+    target => '/etc/apache2/sites-available/thomasbiddle.com',
+    rquire => File['/etc/apache2/sites-available/thomasbiddle.com'],
+  }
+
   # Ensure the file structure is in place.
   file { '/srv/':
     ensure => directory,
@@ -26,21 +32,5 @@ class thomasbiddle_com {
     target => '/home/tj/Sites/ThomasBiddle.com/', # Hard coding this for now.
     require => File['/srv/www/'],
   }
-
-# The below configuration will be applied later as it has not been tested.
-  # Install the Apache package.
-#  class {'apache':  }
-#
-#  apache::vhost { 'www.thomasbiddle.com':
-#    ensure          => 'present',
-#    vhost_name      => 'thomasbiddle.com',
-#    port            => '80',
-#    docroot         => '/srv/www/thomasbiddle.com',
-#    logroot         => '/var/log/apache2/',
-#    serveradmin     => 'biddle.thomas@gmail.com',
-#    serveraliases   => ['thomasbiddle.com', 'thomasbiddle.co',],
-#  }
-
-
 
 }
