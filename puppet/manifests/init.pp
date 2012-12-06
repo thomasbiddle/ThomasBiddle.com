@@ -22,7 +22,8 @@ class thomasbiddle_com {
     require => File['/srv/'],
   }
   file { '/srv/www/thomasbiddle.com':
-    ensure => directory,
+    ensure => link,
+    target => '/home/tj/Sites/ThomasBiddle.com/', # Hard coding this for now.
     require => File['/srv/www/'],
   }
 
