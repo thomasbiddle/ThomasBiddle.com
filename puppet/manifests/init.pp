@@ -27,19 +27,19 @@ class thomasbiddle_com {
     require => File['/srv/www/'],
   }
 
-# The below configuration will be applied later as it has not been tested.
-#  # Install the Apache package.
-#  class {'apache':  }
-#
-#  apache::vhost { 'www.thomasbiddle.com':
-#    ensure          => 'present',
-#    vhost_name      => 'thomasbiddle.com',
-#    port            => '80',
-#    docroot         => '/srv/www/thomasbiddle.com',
-#    logroot         => '/var/log/apache2/',
-#    serveradmin     => 'biddle.thomas@gmail.com',
-#    serveraliases   => ['thomasbiddle.com', 'thomasbiddle.co',],
-#  }
+ The below configuration will be applied later as it has not been tested.
+  # Install the Apache package.
+  class {'apache':  }
+
+  apache::vhost { 'www.thomasbiddle.com':
+    ensure          => 'present',
+    vhost_name      => 'thomasbiddle.com',
+    port            => '80',
+    docroot         => '/srv/www/thomasbiddle.com',
+    logroot         => '/var/log/apache2/',
+    serveradmin     => 'biddle.thomas@gmail.com',
+    serveraliases   => ['thomasbiddle.com', 'thomasbiddle.co',],
+  }
 
 
 
