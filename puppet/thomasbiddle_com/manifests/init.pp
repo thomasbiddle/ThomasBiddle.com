@@ -1,6 +1,6 @@
 
 # Setup ThomasBiddle.com
-class thomasbiddle_com::init {
+class thomasbiddle_com {
 
   # Ensure apache2 is installed and up to date.
   package { 'apache2':
