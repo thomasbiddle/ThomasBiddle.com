@@ -40,16 +40,6 @@ class thomasbiddle_com {
 #    serveradmin     => 'biddle.thomas@gmail.com',
 #    serveraliases   => ['thomasbiddle.com', 'thomasbiddle.co',],
 #  }
-#  cron::job{
-#    'mysqlbackup'
-#      minute  => '1',
-#      hour    => '*',
-#      date    => '*',
-#      month   => '*',
-#      weekday => '*',
-#      user    => 'root',
-#      command => 'mysqlbackup mydb';
-#  }
 
 
 
