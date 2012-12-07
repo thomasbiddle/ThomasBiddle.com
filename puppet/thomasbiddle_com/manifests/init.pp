@@ -4,7 +4,6 @@ class thomasbiddle_com {
   # Setup the Apache Virtual Host
   file { '/etc/apache2/sites-available/thomasbiddle.com':
     ensure  => present,
-    require => Package['apache2'],
     content => template('thomasbiddle_com/apache2.erb'),
   }
 
