@@ -1,0 +1,61 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+#left_div {
+  float: left;
+  height: 100%;
+  width: 40%;
+  margin: auto;
+}
+
+#right_div {
+  float: left;
+  height: 100%;
+  width: 60%;
+  margin: auto;
+}
+
+#content {
+  margin-left: 15%;
+  margin-top: 10%;
+}
+
+#first_name {
+  font-size: 80px;
+  margin: 0;
+  font-weight: 700;
+}
+
+#last_name {
+  font-size: 80px;
+  margin: 0;
+  font-weight: 300;
+}
+
+#first_paragraph {
+  margin-top: 40px;
+}
+
+#work_div_title {
+  font-weight: 700;
+  margin-top: 25px;
+}
+
+#work_div {
+  margin-top: 5px;
+  margin-bottom: 25px;
+}
+
+.long_description {
+  margin-right: 15%;
+}
+
+a:link {color:#000;}
+a:visited {color:#000;}
+a:hover {color:#000;}
+a:active {color:#000;}
+
