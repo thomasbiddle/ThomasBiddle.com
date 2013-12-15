@@ -1,0 +1,36 @@
+
+#left_top_dev {
+  height: 50%;
+  width: 100%;
+  margin: auto;
+}
+
+#left_bottom_dev {
+  height: 50%;
+  width: 100%;
+  margin: auto;
+}
+
+#responsibilities {
+  margin-top: 25px;
+}
+
+.portfolio-image {
+  width: 100%;
+  height: 50%;
+  max-height: 50%;
+}
+
+.client {
+  margin-bottom: 15px;
+}
+
+.client-name {
+  margin-bottom: 12px;
+}
+
+.portfolio-content {
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 5%;
+}
