@@ -40,6 +40,17 @@ body {
   margin-top: 40px;
 }
 
+#indendent_ventures_title {
+  font-weight: 700;
+  margin-top: 25px;
+}
+
+#indendent_ventures_div {
+  margin-top: 5px;
+  margin-bottom: 25px;
+}
+
+
 #work_div_title {
   font-weight: 700;
   margin-top: 25px;
